@@ -25,7 +25,9 @@ Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
-
+Plug 'https://github.com/octol/vim-cpp-enhanced-highlight'
+Plug 'https://github.com/preservim/tagbar'
+Plug 'https://github.com/Iron-E/nvim-tabmode'
 set encoding=UTF-8
 
 call plug#end()
@@ -36,6 +38,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 
 nmap <F8> :TagbarToggle<CR>
+autocmd VimEnter * NERDTree
 
 :set completeopt-=preview " For No Previews
 
@@ -60,13 +63,20 @@ if !exists('g:airline_symbols')
 endif
 
 " airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+let g:airline_left_sep = 'ÓÇ∞'
+let g:airline_left_alt_sep = 'ÓÇ±'
+let g:airline_right_sep = 'ÓÇ≤'
+let g:airline_right_alt_sep = 'ÓÇ≥'
+let g:airline_symbols.branch = 'ÓÇ†'
+let g:airline_symbols.readonly = 'ÓÇ¢'
+let g:airline_symbols.linenr = 'ÓÇ°'
 
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 :set guifont=DroidSansMono_Nerd_Font:h1
+
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+let NERDTreeShowHidden=1
+
+" setup for tagbar
+nmap <F8> :TagbarToggle<CR>
